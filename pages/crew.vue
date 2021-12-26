@@ -26,6 +26,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Space Tourism - Crew',
+    }
+  },
   data() {
     return {
       crew: [],

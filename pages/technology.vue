@@ -6,9 +6,21 @@
       v-if="technology !== undefined && technology.length !== 0"
     >
       <div class="num-group" ref="root">
-        <span :class="pointActive == 0? 'point-active' : ''" @click="changeLaunch(0)">1</span>
-        <span :class="pointActive == 1? 'point-active' : ''" @click="changeLaunch(1)">2</span>
-        <span :class="pointActive == 2? 'point-active' : ''" @click="changeLaunch(2)">3</span>
+        <span
+          :class="pointActive == 0 ? 'point-active' : ''"
+          @click="changeLaunch(0)"
+          >1</span
+        >
+        <span
+          :class="pointActive == 1 ? 'point-active' : ''"
+          @click="changeLaunch(1)"
+          >2</span
+        >
+        <span
+          :class="pointActive == 2 ? 'point-active' : ''"
+          @click="changeLaunch(2)"
+          >3</span
+        >
       </div>
       <article class="card">
         <h1 class="card__job">THE TERMINOLOGY…</h1>
@@ -36,11 +48,16 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Space Tourism - Technology',
+    }
+  },
   data() {
     return {
       technology: [],
       i: 0,
-      pointActive: 0
+      pointActive: 0,
     }
   },
   methods: {
