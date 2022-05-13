@@ -42,7 +42,7 @@ body {
   right: 95%;
   transform: translateY(-50%);
   height: 2px;
-  width: 100%;
+  width: calc(100vw - 110px - 100%);
   background-color: #fff;
   opacity: 0.25;
 }
@@ -69,6 +69,13 @@ body {
   line-height: 19px;
   letter-spacing: 2.7px;
   margin-right: 10px;
+}
+.header__menu__marker {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #fff;
+  transition: .3s;
 }
 
 .mt {
@@ -182,6 +189,9 @@ body {
   }
   .nav {
     width: 450px;
+  }
+  .nav::before {
+    display: none;
   }
   .nav__menu {
     column-gap: 36px;

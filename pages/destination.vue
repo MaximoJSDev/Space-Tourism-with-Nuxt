@@ -11,6 +11,7 @@
         <span class="destination__container__names" id="mars">MARS</span>
         <span class="destination__container__names" id="europa">EUROPA</span>
         <span class="destination__container__names" id="titan">TITAN</span>
+        <div class="header__menu__marker" ref="marker"></div>
       </div>
       <div class="destination__content-img">
         <img
@@ -54,22 +55,28 @@ export default {
     }
   },
   methods: {
+    moveIndicator(e) {
+      let linkTarget = e.target
+      const marker = this.$refs.marker;
+      marker.style.left = linkTarget.offsetLeft+'px';
+      marker.style.width = linkTarget.offsetWidth+'px';
+    },
     changeSection(evnt) {
       const { target } = evnt
       if (target.classList.contains('destination__container__names')) {
+        this.moveIndicator(evnt)
         if (target.id == 'moon') this.i = 0
         if (target.id == 'mars') this.i = 1
         if (target.id == 'europa') this.i = 2
         if (target.id == 'titan') this.i = 3
       }
-    },
+    },    
   },
   created() {
     fetch('data.json')
       .then((res) => res.json())
       .then((data) => {
         this.destinations = data.destinations
-        console.log(data.destinations)
       })
   },
 }
@@ -90,6 +97,7 @@ export default {
   overflow-x: hidden;
 }
 .destination__menu-astro {
+  position: relative;
   width: 445px;
   height: 34px;
   display: flex;
