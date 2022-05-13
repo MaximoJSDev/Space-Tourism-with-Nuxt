@@ -225,6 +225,9 @@ body {
     padding: 0 24px;
     z-index: 11;
   }
+  .nav__menu .header__menu__marker {
+    display: none;
+  }
   .nav {
     display: none;
   }
